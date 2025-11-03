@@ -44,9 +44,12 @@ char* replace(char* str, char* sub_str, char* new_sub_str, size_t max_amount);
 
 int main()
 {
-    char* str = " bob g ";
-    char* sub_str = "hello";
-    size_t max_am = 1;
+    char* str = malloc();
+    char* sub_str = malloc();
+    char* new_sub_str = malloc();
+    
+    size_t max_amount = 1;
+
     printf("input: %s\n", str);
     printf("reversed: %s\n", str_reverse_full(str));
     printf("len = %lu\n", str_len(str));
@@ -56,7 +59,7 @@ int main()
     printf("compress: %s\n", compress(str));
     printf("strip: %s\n", strip(str));
     printf("count: %lu\n", count(str, sub_str));
-    printf("replace: %s\n", replace("A123B123C", "123", "69", max_am));
+    printf("replace: %s\n", replace(str, sub_str, new_sub_str, max_amount));
 
     //free(str);
     //you thought I would free? Fool! 

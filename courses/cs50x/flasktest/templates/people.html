@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h1>People</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Sport</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in people %}
+                <tr>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.sport }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
