@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped">
+        <thead>
+            <th>Current cash</th>
+            <th>Total with stocks</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ cash[0] }}</td>
+                <td>{{ cash[1] }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped">
+        <thead>
+            <th>symbol</th>
+            <th>total_shares</th>
+            <th>share_price</th>
+            <th>total_stock_value</th>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock.symbol }}</td>
+                    <td>{{ stock.total_shares }}</td>
+                    <td>{{ stock.share_price }}</td>
+                    <td>{{ stock.total_stock_value }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="position-fixed bottom-0 start-0 m-3">
+        <a href="/add_cash" class="btn btn-primary">Add Cash</a>
+    </div>
+
+
+{% endblock %}

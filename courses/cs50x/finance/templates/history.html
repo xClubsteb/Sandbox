@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Transaction</th>
+            <th>Symbol</th>
+            <th>Price</th>
+            <th>Shares</th>
+            <th>Date(UTC)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for history_row in user_history %}
+            <tr>
+                <td>{{ "Sold" if history_row.shares < 0 else "Bought" }}</td>
+                <td>{{ history_row.symbol }}</td>
+                <td>{{ history_row.price }}</td>
+                <td style="color: {{ 'red' if history_row.shares < 0 else 'green' }}">{{ history_row.shares }}</td>
+                <td>{{ history_row.timestamp }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
